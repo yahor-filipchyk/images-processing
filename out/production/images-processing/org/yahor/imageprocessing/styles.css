@@ -1,0 +1,8 @@
+.image-pane {
+    -fx-background-color:  linear-gradient(#aaaaaa 0%, #EFEFEF 0.2% , #CDCDCD 99.8%, #888888 100%);
+    /*
+    -fx-border-width: 1;
+    -fx-background-radius: 4;
+    -fx-border-color: #bbbbbb;
+    -fx-border-radius: 4;*/
+}

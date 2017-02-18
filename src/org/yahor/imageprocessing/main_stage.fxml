@@ -1,0 +1,98 @@
+  <?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<GridPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="394.0" prefWidth="712.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.yahor.imageprocessing.Controller">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" prefWidth="358.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="50.0" prefWidth="354.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="100.0" minHeight="0.0" prefHeight="29.0" vgrow="NEVER" />
+    <RowConstraints fillHeight="true" minHeight="10.0" prefHeight="342.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="74.0" minHeight="10.0" prefHeight="23.0" vgrow="NEVER" />
+  </rowConstraints>
+   <children>
+      <MenuBar GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.valignment="TOP">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#openFile" text="Open..." />
+                  <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Save as..." />
+              <MenuItem mnemonicParsing="false" onAction="#exit" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#decreaseBrightness" text="Decrese brightness" />
+                <MenuItem mnemonicParsing="false" onAction="#increaseBrightness" text="Increase brightness" />
+                  <MenuItem mnemonicParsing="false" onAction="#toBlackWhite" text="To binary" />
+                  <MenuItem mnemonicParsing="false" onAction="#filter" text="Prewitt filter" />
+                  <MenuItem mnemonicParsing="false" onAction="#gaussian" text="Gaussian filter" />
+                <MenuItem mnemonicParsing="false" onAction="#lowBrightnessFilter" text="Smooth" />
+                  <MenuItem mnemonicParsing="false" onAction="#applyNoise" text="Noise" />
+                  <MenuItem mnemonicParsing="false" onAction="#resetImage" text="Reset image" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="View">
+              <items>
+                  <Menu mnemonicParsing="false" text="Show histogramm">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#showHistogram" text="Plain image" />
+                      <MenuItem mnemonicParsing="false" onAction="#showHistogramForProcessed" text="Processed image" />
+                    </items>
+                  </Menu>
+                  <MenuItem mnemonicParsing="false" onAction="#showAreas" text="Show areas" />
+                  <MenuItem mnemonicParsing="false" onAction="#classify" text="Classify objects" />
+                  <MenuItem mnemonicParsing="false" onAction="#diffOfGaussians" text="Find blobs" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Hopfield">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#teachHopfield" text="Teach" />
+                  <MenuItem mnemonicParsing="false" onAction="#restoreImage" text="Restore" />
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Label fx:id="statusBar" alignment="TOP_LEFT" prefHeight="15.0" prefWidth="709.0" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2">
+           <opaqueInsets>
+               <Insets />
+           </opaqueInsets>
+           <GridPane.margin>
+               <Insets left="5.0" />
+           </GridPane.margin>
+      </Label>
+      <StackPane fx:id="imageViewWrapper" styleClass="image-pane" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+         <children>
+            <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" layoutX="78.0" layoutY="96.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+         </children>
+         <GridPane.margin>
+            <Insets bottom="2.0" left="5.0" right="4.0" top="2.0" />
+         </GridPane.margin>
+      </StackPane>
+      <StackPane fx:id="processedImageViewWrapper" layoutX="15.0" layoutY="41.0" styleClass="image-pane" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <children>
+            <ImageView fx:id="processedImageView" fitHeight="150.0" fitWidth="200.0" layoutX="78.0" layoutY="96.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+         </children>
+         <GridPane.margin>
+            <Insets bottom="2.0" left="4.0" right="5.0" top="2.0" />
+         </GridPane.margin>
+      </StackPane>
+   </children>
+</GridPane>
